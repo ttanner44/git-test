@@ -28,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginLink">
                         <span class="fa fa-sign-in"></span> Login
                     </a>
                 </span>
@@ -77,7 +77,7 @@
         <div class="modal-dialog modal-lg" role="content">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header bg-warning text-white">
+                <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -115,11 +115,13 @@
                         <div class="form-group row">
                             <label for="section" class="col-12 col-md-2 col-form-label">Section</label>
                             <div class="col-md-10">
-                                <div class="btn-group brn-group-toggle" data-toggle="buttons">  
-                                    <input type="radio" class="btn-check checked" name="options" id="nonSmoking" autocomplete="off" checked>
-                                    <label class="btn btn-success active" for="nonSmoking">Non-Smoking</label>                              
-                                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                                    <label class="btn btn-danger" for="option2">Smoking</label>   
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="options" id="option1" autocomplete="Off" checked> Non-Smoking
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" name="options" id="option2" autocomplete="Off"> Smoking
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +159,8 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <a data-toggle="modal" data-target="#reserveTableModal" class="btn btn-block nav-link btn-warning" data-html="true" href="#reserveTable" role="button">Reserve a Table</a>
+                    <!-- <a data-toggle="modal" data-target="#reserveTableModal" class="btn btn-block nav-link btn-warning" data-html="true" href="#reserveTable" role="button">Reserve a Table</a> -->
+                    <a id="reserveTableButton" class="btn btn-block nav-link btn-warning" role="button">Reserve a Table</a>
                 </div>
             </div>
         </div>
@@ -320,6 +323,12 @@
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
             });
+            $("#reserveTableButton").click(function(){
+                $("#reserveTableModal").modal('show');
+            })
+            $("#loginLink").click(function(){
+                $("#loginModal").modal('show');
+            })
         });
     </script>
   </body>
